@@ -9,7 +9,7 @@ import { ApolloClient } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
 
 const httpLink = createHttpLink({
-  uri: 'https://yuichiboki-301216594-project-backend.onrender.com/graphql', 
+  uri: 'http://localhost:4000/graphql', 
 });
 
 const cache = new InMemoryCache();

@@ -22,9 +22,14 @@ function NurseDashboard() {
   }, [getAllPatients]);
 
   const handleSearch = () => {
+    const objectIdPattern = /^[0-9a-fA-F]{24}$/;
+    if (!objectIdPattern.test(patientId)) {
+      alert("Invalid Patient ID format. Please enter a valid 24-character hexadecimal string.");
+      return;
+    }
     getPatientById({ variables: { patientId } });
-    console.log(searchData)
-    setSearchedPatient(searchData)
+    console.log(searchData);
+    setSearchedPatient(searchData);
   };
 
   const handleClear = () => {

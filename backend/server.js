@@ -103,6 +103,9 @@ const resolvers = {
     },
     
     getPatientById: async (_, { patientId }) => {
+      if (!mongoose.Types.ObjectId.isValid(patientId)) {
+        throw new UserInputError('Invalid Patient ID format');
+      }
       return await PatientCore.findById(patientId).populate('vitalSigns');
     },
     // In the backend resolver
